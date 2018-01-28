@@ -1,3 +1,4 @@
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -5,12 +6,16 @@ import javafx.stage.Stage;
 import java.awt.*;
 
 public class GameScene {
-    static Scene gameView;
+    private static Scene gameView;
 
     static void startGame(Stage window){
-
-        gameView = new Scene(b, window.getWidth(), window.getHeight());
+        Group root = new Group();
+        gameView = new Scene(root, window.getWidth(), window.getHeight());
         window.setScene(gameView);
+    }
+
+    Scene getGameView(){
+        return gameView;
     }
 
 }
