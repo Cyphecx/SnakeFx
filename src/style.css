@@ -1,0 +1,8 @@
+#titleText {
+    -fx-font-size: 100px ;
+}
+
+.button, .choice-box{
+    -fx-border-width:1000pt 100pt 100pt 100pt;
+    -fx-font-size: 80px;
+}

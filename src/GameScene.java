@@ -1,3 +1,5 @@
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -13,6 +15,8 @@ public class GameScene {
         gameView = new Scene(root, window.getWidth(), window.getHeight());
         window.setScene(gameView);
     }
+
+
 
     Scene getGameView(){
         return gameView;
