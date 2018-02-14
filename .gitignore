@@ -1,3 +1,5 @@
 .idea/
-SnakeFx.iml
-out/
+bin/
+.classpath
+.project
+build.fxbuild
