@@ -14,7 +14,7 @@ public class Main extends Application{
 
     Stage window;
     Scene TitleScreen;
-    static int WINDOW_HEIGHT = 1080;
+    static int WINDOW_HEIGHT = 1010;
     static int WINDOW_WIDTH = 1920;
 
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class Main extends Application{
 
         Button startGame = new Button();
         startGame.setText("Start a new Game!");
-        startGame.setOnAction(e -> GameScene.startGame(window));
+        startGame.setOnAction(e -> new GameScene(window));
         //In case I want to add a settings menu
         Button openSettings = new Button("Settings");
         openSettings.setOnAction(e -> System.out.println("Opened Settings"));
@@ -60,6 +60,7 @@ public class Main extends Application{
             quitGame();
         });
         window.show();
+        window.setMaximized(true);
     }
 
     Scene getTitleScene(){
