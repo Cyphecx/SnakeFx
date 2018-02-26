@@ -4,18 +4,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 public class Main extends Application{
 
     Stage window;
     Scene TitleScreen;
-    static int WINDOW_HEIGHT = 1010;
-    static int WINDOW_WIDTH = 1920;
+    static final int WINDOW_HEIGHT = 1010;
+    static final int WINDOW_WIDTH = 1920;
 
     public static void main(String[] args) {
        launch(args);
@@ -26,9 +23,9 @@ public class Main extends Application{
         TextFlow titleText = new TextFlow();
         titleText.setTextAlignment(TextAlignment.CENTER);
         Text part1 = new Text("Snake!");
-        part1.setFont(Font.font(100));
+        part1.setFont(Font.font("",FontWeight.BOLD,100));
         Text part2 = new Text(" Now with FX!");
-        part2.setFont(Font.font(100));
+        part2.setFont(Font.font("",FontWeight.BOLD,FontPosture.ITALIC,100));
         titleText.getChildren().addAll(part1, part2);
         titleText.setId("titleText");
 
