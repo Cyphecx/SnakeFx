@@ -25,7 +25,7 @@ public class Main extends Application{
         Text part1 = new Text("Snake!");
         part1.setFont(Font.font("",FontWeight.BOLD,100));
         Text part2 = new Text(" Now with FX!");
-        part2.setFont(Font.font("",FontWeight.BOLD,FontPosture.ITALIC,100));
+        part2.setFont(Font.font("Helvetica",FontWeight.BOLD,FontPosture.ITALIC,100));
         titleText.getChildren().addAll(part1, part2);
         titleText.setId("titleText");
 
