@@ -23,9 +23,10 @@ public class GameScene {
         gameView = new Scene(root, window.getWidth(), window.getHeight());
         window.setScene(gameView);
 
-        snakeSegments.add(new Coordinate(4,4));
+        for (int i = 2; i < 13; i++) {
+            snakeSegments.add(new Coordinate(i,i));
+        }
         new AnimationTimer(){
-            int i = 0;
             @Override
             public void handle(long now) {
                 gameLogic();
@@ -37,15 +38,18 @@ public class GameScene {
 
     private void gameLogic(){
 
-
-
     }
 
     private void paintGame(GraphicsContext paint){
         paint.clearRect(0, 0, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
-        paint.setFill(Color.BLACK);
+        paint.setFill(Color.BLUE);
+        paint.setStroke(Color.BLACK);
+        paint.setLineWidth(CELL_INTERVEL/4);
+
         for (Coordinate s: snakeSegments) {
             paint.fillRect((s.getX()*CELL_INTERVEL), (s.getY()*CELL_INTERVEL), CELL_INTERVEL, CELL_INTERVEL);
+            paint.strokeRect((s.getX()*CELL_INTERVEL), (s.getY()*CELL_INTERVEL), CELL_INTERVEL, CELL_INTERVEL);
+
         }
     }
 
