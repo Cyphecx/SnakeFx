@@ -15,7 +15,7 @@ public class GameScene {
     private double CELL_INTERVEL = 20;
     ArrayList<Coordinate> snakeSegments;
     Direction movementDirection = Direction.RIGHT;
-
+    private double speedFactor = 1;
     GameScene(Stage window){
         snakeSegments = new ArrayList<Coordinate>();
         Group root = new Group();
@@ -28,9 +28,29 @@ public class GameScene {
             @Override
             public void handle(KeyEvent event) {
                 System.out.println(event.getCode());
-                switch(event.getCode().toString()){
+                switch(event.getCode().toString()) {
                     case "ESCAPE":
                         window.close();
+                        break;
+                    case "LEFT":
+                        if(movementDirection != Direction.RIGHT) {
+                            movementDirection = Direction.LEFT;
+                        }
+                        break;
+                    case "RIGHT":
+                        if(movementDirection != Direction.LEFT) {
+                            movementDirection = Direction.RIGHT;
+                        }
+                        break;
+                    case "UP":
+                        if(movementDirection != Direction.DOWN) {
+                            movementDirection = Direction.UP;
+                        }
+                        break;
+                    case "DOWN":
+                        if(movementDirection != Direction.UP) {
+                            movementDirection = Direction.DOWN;
+                        }
                         break;
                 }
             }
@@ -41,35 +61,38 @@ public class GameScene {
             snakeSegments.add(new Coordinate(i,i));
         }
         new AnimationTimer(){
+            long lastTimeRan = 0;
             @Override
             public void handle(long now) {
-                gameLogic();
-                paintGame(paint);
+
+                if(now-lastTimeRan >= speedFactor*500000000) {
+                    gameLogic();
+                    paintGame(paint);
+                    lastTimeRan = now;
+                }
             }
         }.start();
 
    }
 
     private void gameLogic(){
-
+        Coordinate head = snakeSegments.get(0);
         switch(movementDirection) {
             case UP:
-
+                head.setY(head.getY()-1);
                 break;
-
             case DOWN:
-
+                head.setY(head.getY()+1);
                 break;
 
             case LEFT:
-
+                head.setX(head.getX()-1);
                 break;
 
             case RIGHT:
-
+                head.setX(head.getX()+1);
                 break;
         }
-
 
     }
 
