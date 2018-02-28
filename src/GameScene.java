@@ -65,7 +65,7 @@ public class GameScene {
             @Override
             public void handle(long now) {
 
-                if(now-lastTimeRan >= speedFactor*500000000) {
+                if(now-lastTimeRan >= speedFactor*100000000) {
                     gameLogic();
                     paintGame(paint);
                     lastTimeRan = now;
@@ -77,6 +77,10 @@ public class GameScene {
 
     private void gameLogic(){
         Coordinate head = snakeSegments.get(0);
+        for (int i = snakeSegments.size()-1; i > 0; i--) {
+            snakeSegments.get(i).setX(snakeSegments.get(i-1).getX());
+            snakeSegments.get(i).setY(snakeSegments.get(i-1).getY());
+        }
         switch(movementDirection) {
             case UP:
                 head.setY(head.getY()-1);
@@ -100,7 +104,7 @@ public class GameScene {
         paint.clearRect(0, 0, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         paint.setFill(Color.BLUE);
         paint.setStroke(Color.BLACK);
-        paint.setLineWidth(CELL_INTERVEL/3);
+        paint.setLineWidth(CELL_INTERVEL/8);
 
         for (Coordinate s: snakeSegments) {
             paint.fillRect((s.getX()*CELL_INTERVEL), (s.getY()*CELL_INTERVEL), CELL_INTERVEL, CELL_INTERVEL);
