@@ -11,7 +11,7 @@ public class Main extends Application{
 
     Stage window;
     Scene TitleScreen;
-    static final int WINDOW_HEIGHT = 1010;
+    static final int WINDOW_HEIGHT = 1080;
     static final int WINDOW_WIDTH = 1920;
 
     public static void main(String[] args) {
@@ -57,7 +57,7 @@ public class Main extends Application{
             quitGame();
         });
         window.show();
-        window.setMaximized(true);
+        new GameScene(window);
     }
 
     Scene getTitleScene(){
